@@ -201,34 +201,36 @@ body {
 /* DARK MODE */
 
 /* Dark mode styles */
-body.dark-mode {
+
+
+body.dark {
   background-color: black;
   color: white;
 }
 
 /* Inverted colors for dark mode */
-body.dark-mode #mySidebar {
+body.dark #mySidebar {
   background-color: #333;
 }
 
-body.dark-mode #mySidebar a {
+body.dark #mySidebar a {
   color: white;
 }
 
-body.dark-mode #main {
+body.dark #main {
   background-color: #222;
 }
 
-body.dark-mode .openbtn {
+body.dark .openbtn {
   background-color: #333;
   color: white;
 }
 
-body.dark-mode .columns {
+body.dark .columns {
   background-color: #222;
 }
 
-body.dark-mode #eventNameInput, body.dark-mode #confirmButton, body.dark-mode #cancelButton {
+body.dark #eventNameInput, body.dark #confirmButton, body.dark #cancelButton {
   background-color: #333;
   color: white;
 }
