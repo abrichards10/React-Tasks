@@ -20,7 +20,7 @@ const Login = () => {
         <body>
         <div className={`App ${isSidebarOpen ? 'open' : ''}`}>
             <div id="mySidebar" className="sidebar">
-                <div className="closebtn" onClick={closeNav}>&times;</div>
+                <div className="close-button" onClick={closeNav}>&times;</div>
                 <div className="My-Stuff">
                     <Link to="/">My-Stuff</Link>
                 </div>
@@ -37,7 +37,7 @@ const Login = () => {
             </div>
         </div>
         <div id="main">
-            <button className="openbtn" onClick={openNav}>&#9776;</button>
+            <button className="open-button" onClick={openNav}>&#9776;</button>
             <h2>LOGIN</h2>
             <p>Content...</p>
         </div>

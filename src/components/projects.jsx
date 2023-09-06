@@ -2,7 +2,8 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from "@fullcalendar/interaction" // needed for dayClick
+import interactionPlugin from "@fullcalendar/interaction"
+import { v4 as uuid } from "uuid";
 
 // import Toggle from "react-toggle";
 // import { useMediaQuery } from "react-responsive";
@@ -43,7 +44,7 @@ const Projects = () => {
     // }
 
 
-    const submitButton = document.getElementById('submitButton');
+    // const submitButton = document.getElementById('submitButton');
     // const infoList = document.getElementById('infoList');
     // const userInfoForm = document.getElementById('userInfoForm');
     // const calendarEl = document.getElementById('calendar');
@@ -270,15 +271,29 @@ const Projects = () => {
     //     calendar.render();
     // });
 
-    const handleDateClick = (arg) => {
-        alert(arg.dateStr)
-    }
+    const [events, setEvents] = useState([]);
+
+    const handleSelect = (info) => {
+        const { start, end } = info;
+        const eventNamePrompt = prompt("Enter, event name");
+        if (eventNamePrompt) {
+            setEvents([
+                ...events,
+                {
+                    start,
+                    end,
+                    title: eventNamePrompt,
+                    id: uuid(),
+                },
+            ]);
+        }
+    };
 
     return (
         <div>
         <div className={`App ${isSidebarOpen ? 'open' : ''}`}>
             <div id="mySidebar" className="sidebar">
-                <div className="closebtn" onClick={closeNav}>&times;</div>
+                <div className="close-button" onClick={closeNav}>&times;</div>
                 <div className="My-Stuff">
                     <Link to="/">My-Stuff</Link>
                 </div>
@@ -295,7 +310,7 @@ const Projects = () => {
             </div>
         </div>
         <div id="main">
-            <button className="openbtn" onClick={openNav}>&#9776;</button>
+            <button className="open-button" onClick={openNav}>&#9776;</button>
             <h2>Projects</h2>
             <p>Content...</p>
         </div>
@@ -325,9 +340,23 @@ const Projects = () => {
                 <div class="second-column">
                     {/*<div id="calendar"></div>*/}
                     <FullCalendar
-                        plugins={[dayGridPlugin]}
+                        editable
+                        selectable
+                        headerToolbar={{
+                            start: "today prev next",
+                            end: "dayGridMonth dayGridWeek dayGridDay",
+                        }}
+                        events={events}
+                        select={handleSelect}
+                        plugins={[dayGridPlugin, interactionPlugin]}
+                        views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
                         initialView='dayGridMonth'
-                        eventClick={handleDateClick}
+                        eventClick={
+                            function(arg){
+                                alert(arg.event.title)
+                                alert(arg.event.start)
+                            }
+                        }
                         weekends={true}
                     />
                 </div>

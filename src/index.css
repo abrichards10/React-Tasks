@@ -35,7 +35,7 @@ body {
 }
 
 /* Position and style the close button (top right corner) */
-.sidebar .closebtn {
+.sidebar .close-button {
   position: absolute;
   top: 0;
   right: 10px;
@@ -44,7 +44,7 @@ body {
 }
 
 /* The button used to open the sidebar */
-.openbtn {
+.open-button {
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
@@ -53,7 +53,7 @@ body {
   border: none;
 }
 
-.openbtn:hover {
+.open-button:hover {
   background-color: #444;
 }
 
