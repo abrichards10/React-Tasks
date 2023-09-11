@@ -1,11 +1,12 @@
-import * as React from 'react';
+import React, {useState} from "react";
+import { Link } from "react-router-dom";
+import logo from "./assets/logo.png";
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
@@ -13,9 +14,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import logo from "./assets/logo.png";
-import {useState} from "react";
-import {Copyright, defaultTheme} from "./utils";
+import {Copyright, defaultTheme, closeNav, openNav} from "./utils";
 const SignUp = () => {
     let navigate = useNavigate();
     const handleSubmit = () => {
@@ -30,16 +29,6 @@ const SignUp = () => {
     };
 
     const [isSidebarOpen] = useState(false);
-
-    const openNav = () => {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    };
-
-    const closeNav = () => {
-        document.getElementById("mySidebar").style.width = "10px";
-        document.getElementById("main").style.marginLeft = "10px";
-    };
 
     return (
         <div>
@@ -154,6 +143,6 @@ const SignUp = () => {
             </div>
         </div>
     );
-}
+};
 
 export default SignUp;
