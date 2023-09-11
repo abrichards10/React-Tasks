@@ -1,21 +1,10 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.png";
+import {closeNav, openNav} from "./utils";
 
 const Settings = () => {
     const [isSidebarOpen] = useState(false);
-
-    // Function to open the sidebar
-    const openNav = () => {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    };
-
-    // Function to close the sidebar
-    const closeNav = () => {
-        document.getElementById("mySidebar").style.width = "10px";
-        document.getElementById("main").style.marginLeft = "10px";
-    };
 
     return (
         <body>
@@ -27,10 +16,10 @@ const Settings = () => {
                 </div>
                 <div className="Account-columns">
                     <div className="Account-name">
-                        <Link to="/login">[Name]</Link>
+                        <Link to="/sign_in">[Name]</Link>
                     </div>
                     <div className="Account-pic">
-                        <Link to="/login"><img src={logo} alt="logo" width={40} height={40}/></Link>
+                        <Link to="/sign_in"><img src={logo} alt="logo" width={40} height={40}/></Link>
                     </div>
                 </div>
                 <Link to="/projects">Projects</Link>

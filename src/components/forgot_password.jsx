@@ -12,7 +12,6 @@ import {
 import Container from "@mui/material/Container";
 import {useNavigate} from "react-router-dom";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
-
 const ForgotPassword = () => {
     const [sent, setSent] = React.useState(false);
 
@@ -35,7 +34,6 @@ const ForgotPassword = () => {
         // setSent(true);
         navigate("/login_demo")
     };
-
 
 // TODO: MOVE TO ANOTHER FILE
 // APPForm Function

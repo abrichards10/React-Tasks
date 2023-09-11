@@ -15,10 +15,10 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-
-const Login = () => {
+import {defaultTheme, closeNav, openNav} from "./utils";
+const SignIn = () => {
 
     let navigate = useNavigate();
     const [isSidebarOpen] = useState(false);
@@ -33,29 +33,6 @@ const Login = () => {
         //     password: data.get('password'),
         // });
         navigate("/login_demo")
-    };
-
-    // TODO remove, this demo shouldn't need to reset the theme.
-    const defaultTheme = createTheme({
-        palette: {
-            primary: {
-                main: "#6e588f",
-            },
-            secondary: {
-                main: "#6e588f",
-            },
-        },
-        }
-    );
-
-    const openNav = () => {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    };
-
-    const closeNav = () => {
-        document.getElementById("mySidebar").style.width = "10px";
-        document.getElementById("main").style.marginLeft = "10px";
     };
 
     function Copyright(props: any) {
@@ -82,10 +59,10 @@ const Login = () => {
                     </div>
                     <div className="Account-columns">
                         <div className="Account-name">
-                            <Link to="/login">[Name]</Link>
+                            <Link to="/sign_in">[Name]</Link>
                         </div>
                         <div className="Account-pic">
-                            <Link to="/login"><img src={logo} alt="logo" width={40} height={40}/></Link>
+                            <Link to="/sign_in"><img src={logo} alt="logo" width={40} height={40}/></Link>
                         </div>
                     </div>
                     <Link to="/projects">Projects</Link>
@@ -166,4 +143,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignIn;

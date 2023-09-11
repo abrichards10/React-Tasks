@@ -5,24 +5,13 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction"
 import { v4 as uuid } from "uuid";
 import logo from './assets/logo.png'; // with import
+import {closeNav, openNav} from "./utils";
 
 const Projects = () => {
     const [isSidebarOpen] = useState(false);
     const [events, setEvents] = useState([]);
     const [task, setTask] = useState(""); // State to store the task input
     const [taskList, setTaskList] = useState([]);
-
-    // Function to open the sidebar
-    const openNav = () => {
-        document.getElementById("mySidebar").style.width = "250px";
-        document.getElementById("main").style.marginLeft = "250px";
-    };
-
-    // Function to close the sidebar
-    const closeNav = () => {
-        document.getElementById("mySidebar").style.width = "10px";
-        document.getElementById("main").style.marginLeft = "10px";
-    };
 
     /** HOVER FUNCTIONS **/
     function handleEventMouseEnter(info) {
@@ -83,10 +72,10 @@ const Projects = () => {
                     </div>
                     <div className="Account-columns">
                         <div className="Account-name">
-                            <Link to="/login">[Name]</Link>
+                            <Link to="/sign_in">[Name]</Link>
                         </div>
                         <div className="Account-pic">
-                            <Link to="/login"><img src={logo} alt="logo" width={40} height={40}/></Link>
+                            <Link to="/sign_in"><img src={logo} alt="logo" width={40} height={40}/></Link>
                         </div>
                     </div>
                     <Link to="/projects">Projects</Link>
