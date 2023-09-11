@@ -45,7 +45,7 @@ const Home = () => {
 
         <div id="main">
             <button className="open-button" onClick={openNav}>&#9776;</button>
-            <button onClick={toggleTheme}>Toggle Theme</button>
+            <button className="dark-mode-button" onClick={toggleTheme}>🌙</button>
             <h2>Tasks</h2>
             <p>Content...</p>
         </div>

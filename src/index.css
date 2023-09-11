@@ -201,8 +201,7 @@ body {
 /* Dark mode styles */
 
 .light {
-  background-color: #fff;
-  color: #333;
+  background-color: #d3d3d3;
 }
 
 .dark {
@@ -235,6 +234,21 @@ body {
 .dark #eventNameInput, body.dark #confirmButton, body.dark #cancelButton {
   background-color: #333;
   color: white;
+}
+
+.dark #My-Stuff {
+  color: white;
+  background-color: #222222;
+}
+
+.dark-mode-button {
+  padding: 6px;
+  margin: 20px;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border-color: #6e588f;
+  font-size: 10px;
 }
 
 /*LOGIN PAGE*/
