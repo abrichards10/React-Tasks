@@ -15,7 +15,6 @@ export function Copyright(props: any) {
         </Typography>
     );
 }
-
 export const defaultTheme = createTheme({
         palette: {
             primary: {
@@ -27,12 +26,10 @@ export const defaultTheme = createTheme({
         },
     }
 );
-
 export const openNav = () => {
     document.getElementById("mySidebar").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
 };
-
 export const closeNav = () => {
     document.getElementById("mySidebar").style.width = "10px";
     document.getElementById("main").style.marginLeft = "10px";
