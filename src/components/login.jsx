@@ -146,14 +146,14 @@ const Login = () => {
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    {/*<Link href="/forgot_password" variant="body2" to={"/forgot_password"}>*/}
-                                    {/*    Forgot password?*/}
-                                    {/*</Link>*/}
+                                    <Link variant="body2" to={"/forgot_password"}>
+                                        Forgot password?
+                                    </Link>
                                 </Grid>
                                 <Grid item>
-                                    {/*<Link href="/sign_up" variant="body2" to={"/sign_up"}>*/}
-                                    {/*    {"Don't have an account? Sign Up"}*/}
-                                    {/*</Link>*/}
+                                    <Link variant="body2" to={"/sign_up"}>
+                                        {"Don't have an account? Sign Up"}
+                                    </Link>
                                 </Grid>
                             </Grid>
                         </Box>

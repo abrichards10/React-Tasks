@@ -7,6 +7,8 @@ import Login from "./components/login";
 import Projects from "./components/projects";
 import Settings from "./components/settings";
 import LoginDemo from "./components/login_demo";
+import SignUp from "./components/sign_up";
+import ForgotPassword from "./components/forgot_password";
 import {
     Routes,
     Route,
@@ -21,6 +23,9 @@ function App() {
                 <Route path="/projects" element={<Projects />}></Route>
                 <Route path="/settings" element={<Settings />}></Route>
                 <Route path="/login_demo" element={<LoginDemo />}></Route>
+                <Route path="/sign_up" element={<SignUp />}></Route>
+                <Route path="/forgot_password" element={<ForgotPassword />}></Route>
+
             </Routes>
         </>
     );
