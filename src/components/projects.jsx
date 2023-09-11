@@ -4,6 +4,7 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction"
 import { v4 as uuid } from "uuid";
+import logo from './assets/logo.png'; // with import
 
 const Projects = () => {
     const [isSidebarOpen] = useState(false);
@@ -47,6 +48,7 @@ const Projects = () => {
             setTaskList([...taskList, eventNamePrompt]);
         }
     };
+
     const EventItem = ({ info }) => {
         const { event } = info;
         return (
@@ -73,24 +75,24 @@ const Projects = () => {
 
     return (
         <div>
-        <div className={`App ${isSidebarOpen ? 'open' : ''}`}>
-            <div id="mySidebar" className="sidebar">
-                <div className="close-button" onClick={closeNav}>&times;</div>
-                <div className="My-Stuff">
-                    <Link to="/">My-Stuff</Link>
-                </div>
-                <div className="Account-items">
-                    <div className="Account-name">
-                        <Link to="/login">[Name]</Link>
+            <div className={`App ${isSidebarOpen ? 'open' : ''}`}>
+                <div id="mySidebar" className="sidebar">
+                    <div className="close-button" onClick={closeNav}>&times;</div>
+                    <div className="My-Stuff">
+                        <Link to="/">My-Stuff</Link>
                     </div>
-                    <div className="Account-pic">
-                        {/*<img src="assets/logo.png" width="50" height="50"></img>*/}
+                    <div className="Account-columns">
+                        <div className="Account-name">
+                            <Link to="/login">[Name]</Link>
+                        </div>
+                        <div className="Account-pic">
+                            <Link to="/login"><img src={logo} alt="logo" width={40} height={40}/></Link>
+                        </div>
                     </div>
+                    <Link to="/projects">Projects</Link>
+                    <Link to="/settings">Settings</Link>
                 </div>
-                <Link to="/projects">Projects</Link>
-                <Link to="/settings">Settings</Link>
             </div>
-        </div>
 
         <div id="main">
             <button className="open-button" onClick={openNav}>&#9776;</button>
@@ -101,8 +103,8 @@ const Projects = () => {
             {/*    icons={{ checked: "🌙", unchecked: "🔆" }}*/}
             {/*    aria-label="Dark mode toggle"*/}
             {/*/>*/}
-            <div class="columns">
-                <div class="first-column">
+            <div className="columns">
+                <div className="first-column">
                     <h2>Projects</h2>
 
                     <form id="userInfoForm">
@@ -129,8 +131,7 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div class="second-column">
-                    {/*<div id="calendar"></div>*/}
+                <div className="second-column">
                     <FullCalendar
                         editable
                         selectable
@@ -158,17 +159,18 @@ const Projects = () => {
             </div>
         </div>
 
-        {/*<div id="customPrompt" class="custom-prompt">*/}
-        {/*    <input type="text" id="eventNameInput" placeholder="Enter event name..."></input>*/}
-        {/*        <button id="confirmButton">OK</button>*/}
-        {/*        <button id="cancelButton">Cancel</button>*/}
-        {/*</div>*/}
-
-        {/*<div id="customEditPrompt" class="custom-edit-prompt">*/}
-        {/*    <input type="text" id="editEventNameInput" placeholder="Enter event name..."></input>*/}
-        {/*        <button id="editConfirmButton">OK</button>*/}
-        {/*        <button id="editCancelButton">Cancel</button>*/}
-        {/*</div>*/}
+            {/*{isPromptOpen && (*/}
+            {/*    <div className="custom-prompt" style={{ backgroundColor: 'red', padding: '10px' }}>*/}
+            {/*        <input*/}
+            {/*            type="text"*/}
+            {/*            placeholder="Enter event name..."*/}
+            {/*            value={promptValue}*/}
+            {/*            onChange={(e) => setPromptValue(e.target.value)}*/}
+            {/*        />*/}
+            {/*        <button onClick={handleConfirm}>OK</button>*/}
+            {/*        <button onClick={handleClose}>Cancel</button>*/}
+            {/*    </div>*/}
+            {/*)}*/}
         </div>
     );
 };

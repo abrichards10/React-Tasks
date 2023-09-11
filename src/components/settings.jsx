@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
+import logo from "./assets/logo.png";
 
 const Settings = () => {
     const [isSidebarOpen] = useState(false);
@@ -24,12 +25,12 @@ const Settings = () => {
                 <div className="My-Stuff">
                     <Link to="/">My-Stuff</Link>
                 </div>
-                <div className="Account-items">
+                <div className="Account-columns">
                     <div className="Account-name">
                         <Link to="/login">[Name]</Link>
                     </div>
                     <div className="Account-pic">
-                        {/*<img src="assets/logo.png" width="50" height="50"></img>*/}
+                        <Link to="/login"><img src={logo} alt="logo" width={40} height={40}/></Link>
                     </div>
                 </div>
                 <Link to="/projects">Projects</Link>

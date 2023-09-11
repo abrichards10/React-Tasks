@@ -6,6 +6,7 @@ import Home from "./components/home";
 import Login from "./components/login";
 import Projects from "./components/projects";
 import Settings from "./components/settings";
+import LoginDemo from "./components/login_demo";
 import {
     Routes,
     Route,
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/login" element={<Login />}></Route>
                 <Route path="/projects" element={<Projects />}></Route>
                 <Route path="/settings" element={<Settings />}></Route>
+                <Route path="/login_demo" element={<LoginDemo />}></Route>
             </Routes>
         </>
     );

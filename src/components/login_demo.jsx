@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.png";
 
-const Home = () => {
+const LoginDemo = () => {
     const [isSidebarOpen] = useState(false);
 
     // Function to open the sidebar
@@ -38,13 +38,13 @@ const Home = () => {
                 </div>
             </div>
 
-        <div id="main">
-            <button className="open-button" onClick={openNav}>&#9776;</button>
-            <h2>Tasks</h2>
-            <p>Content...</p>
-        </div>
+            <div id="main">
+                <button className="open-button" onClick={openNav}>&#9776;</button>
+                <h2>Demo</h2>
+                <p>Content...</p>
+            </div>
         </div>
     );
 };
 
-export default Home;
+export default LoginDemo;
