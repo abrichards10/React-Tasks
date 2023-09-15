@@ -1,6 +1,5 @@
+/********** STYLES PAGE *********/
 
-
-/* styles.css */
 body {
   margin: 0;
   padding: 0;
@@ -73,7 +72,6 @@ body {
   border-radius: 30px;
   border: 3px solid #b6b6b6;
   box-shadow: 9px 6px 4px #6e588f;
-  font-family: Klee, serif;
 }
 
 .Account-name {
@@ -124,7 +122,7 @@ body {
   border: none;
 }
 
-/* Calendar Customization */
+/* CALENDAR CUSTOMIZATION */
 
 .fc-header-toolbar .fc-button {
   background-color: #8ea0c9;
@@ -135,98 +133,14 @@ body {
   cursor: pointer;
 }
 
-/* Change button style on hover */
-.fc-header-toolbar .fc-button:hover {
-  background-color: #8298cb;
-}
-
-.fc-header-toolbar .fc-toolbar-title {
-  font-size: 18px;
-}
-
-.fc .fc-popover {
-  background-color: #8298cb !important; /* Set the background color to grey */
-  color: white; /* Set the text color to white */
-}
-
-.fc-day-header {
-  color: #ff0000; /* Change the text color to red */
-  font-weight: bold; /* Optional: Add bold styling */
-}
-
-.portlet.calendar .fc-event .fc-time {
+.event-style {
+  background-color: #8ea0c9;
   color: white;
-}
-
-.portlet.calendar .fc-event .fc-title {
-  color: white;
-}
-
-.highlighted-event {
-  background-color: #ffcccb; /* Change this to the desired highlight color */
-  cursor: pointer; /* Optional: Change the cursor to a pointer when hovered */
-}
-
-/* Custom prompt modal */
-.custom-prompt {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #8298cb; /* Set the background color to red */
-  padding: 20px;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
-
-.custom-prompt input {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-}
-
-.custom-prompt button {
-  background-color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-right: 10px;
-}
-
-
-/*Custom Edit Prompt model*/
-.custom-edit-prompt {
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #8298cb; /* Set the background color to red */
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-}
-
-.custom-edit-prompt input {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-}
-
-.custom-edit-prompt button {
-  background-color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  margin-right: 10px;
+  padding: 0 5px 0 5px;
 }
 
 /* DARK MODE */
-
-/* Dark mode styles */
 
 .dark {
   background-color: black;

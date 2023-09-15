@@ -14,6 +14,7 @@ const Projects = () => {
     const [theme] = useState(
         localStorage.getItem('theme') || 'light'
     );
+
     /** HOVER FUNCTIONS **/
     function handleEventMouseEnter(info) {
 
@@ -21,7 +22,6 @@ const Projects = () => {
     function handleEventMouseLeave(info) {
 
     }
-    //
     const handleEventClick = (info) => {
         const {start, end} = info;
         const editEventName = prompt("Edit event name");
@@ -45,7 +45,7 @@ const Projects = () => {
     const EventItem = ({ info }) => {
         const { event } = info;
         return (
-            <div>
+            <div className={"event-style"}>
                 <p>{event.title}</p>
             </div>
         );
@@ -56,18 +56,8 @@ const Projects = () => {
     };
 
     const handleTaskSubmit = () => {
-        const { start, end } = task;
         if (task) {
             setTaskList([...taskList, task]); // add task to task list
-            setEvents([
-                ...events,
-                {
-                    start,
-                    end,
-                    title: task,
-                    id: uuid(),
-                },
-            ]);
             setTask(""); // clear the task input
         }
     };
@@ -89,13 +79,6 @@ const Projects = () => {
         }
     };
 
-    let colorStyle = document.getElementsByClassName('fc-title');
-
-    for (let i = 0; i < colorStyle.length; i++) {
-        colorStyle[i].style.color = 'white';
-    }
-
-
     return (
         <div>
             <div className={`App ${isSidebarOpen ? 'open' : ''} ${theme}`}>
@@ -104,16 +87,7 @@ const Projects = () => {
                     <div className="My-Stuff">
                         <Link to="/">My-Stuff</Link>
                     </div>
-                    {/*<div className="Account-columns">*/}
-                    {/*    <div className="Account-name">*/}
-                    {/*        <Link to="/sign_in">[Name]</Link>*/}
-                    {/*    </div>*/}
-                    {/*    <div className="Account-pic">*/}
-                    {/*        <Link to="/sign_in"><img src={logo} alt="logo" width={40} height={40}/></Link>*/}
-                    {/*    </div>*/}
-                    {/*</div>*/}
                     <div className="projects-sidebar"><Link to="/projects">Projects</Link></div>
-                    {/*<Link to="/settings">Settings</Link>*/}
                 </div>
             </div>
 
@@ -155,7 +129,6 @@ const Projects = () => {
                             start: "today prev next",
                             end: "dayGridMonth dayGridWeek dayGridDay",
                         }}
-                        eventTextColor={"#D9D9D9"}
                         eventContent={(info) => <EventItem info={info} />}
                         eventMouseEnter={handleEventMouseEnter}
                         eventMouseLeave={handleEventMouseLeave}
@@ -172,19 +145,6 @@ const Projects = () => {
                 </div>
             </div>
         </div>
-
-            {/*{isPromptOpen && (*/}
-            {/*    <div className="custom-prompt" style={{ backgroundColor: 'red', padding: '10px' }}>*/}
-            {/*        <input*/}
-            {/*            type="text"*/}
-            {/*            placeholder="Enter event name..."*/}
-            {/*            value={promptValue}*/}
-            {/*            onChange={(e) => setPromptValue(e.target.value)}*/}
-            {/*        />*/}
-            {/*        <button onClick={handleConfirm}>OK</button>*/}
-            {/*        <button onClick={handleClose}>Cancel</button>*/}
-            {/*    </div>*/}
-            {/*)}*/}
         </div>
     );
 };
