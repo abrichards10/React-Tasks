@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.png";
-import {defaultTheme, closeNav, openNav} from "./utils";
+import {closeNav, openNav} from "./utils";
 
 const LoginDemo = () => {
     const [isSidebarOpen] = useState(false);

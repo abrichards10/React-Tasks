@@ -13,7 +13,7 @@ import Container from "@mui/material/Container";
 import {useNavigate} from "react-router-dom";
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 const ForgotPassword = () => {
-    const [sent, setSent] = React.useState(false);
+    const [sent] = React.useState(false);
 
     const validate = (values: { [index: string]: string }) => {
         // const errors = required(['email'], values);

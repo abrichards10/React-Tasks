@@ -4,7 +4,6 @@ import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction"
 import { v4 as uuid } from "uuid";
-import logo from './assets/logo.png'; // with import
 import {closeNav, openNav} from "./utils";
 
 const Projects = () => {
@@ -12,7 +11,9 @@ const Projects = () => {
     const [events, setEvents] = useState([]);
     const [task, setTask] = useState(""); // State to store the task input
     const [taskList, setTaskList] = useState([]);
-
+    const [theme] = useState(
+        localStorage.getItem('theme') || 'light'
+    );
     /** HOVER FUNCTIONS **/
     function handleEventMouseEnter(info) {
 
@@ -20,6 +21,56 @@ const Projects = () => {
     function handleEventMouseLeave(info) {
 
     }
+    //
+    const handleEventClick = (info) => {
+        const {start, end} = info;
+        const editEventName = prompt("Edit event name");
+        if(editEventName) {
+            setEvents(
+                [
+                    ...events,
+                    {
+                        start,
+                        end,
+                        title: editEventName,
+                        id: uuid(),
+                    }
+                ]
+            );
+            setTaskList([...taskList, editEventName]);
+        }
+
+    }
+
+    const EventItem = ({ info }) => {
+        const { event } = info;
+        return (
+            <div>
+                <p>{event.title}</p>
+            </div>
+        );
+    };
+
+    const handleTaskInputChange = (event) => {
+        setTask(event.target.value);
+    };
+
+    const handleTaskSubmit = () => {
+        const { start, end } = task;
+        if (task) {
+            setTaskList([...taskList, task]); // add task to task list
+            setEvents([
+                ...events,
+                {
+                    start,
+                    end,
+                    title: task,
+                    id: uuid(),
+                },
+            ]);
+            setTask(""); // clear the task input
+        }
+    };
 
     const handleSelect = (info) => {
         const { start, end } = info;
@@ -38,60 +89,36 @@ const Projects = () => {
         }
     };
 
-    const EventItem = ({ info }) => {
-        const { event } = info;
-        return (
-            <div>
-                <p>{event.title}</p>
-            </div>
-        );
-    };
+    let colorStyle = document.getElementsByClassName('fc-title');
 
-    const handleTaskInputChange = (event) => {
-        setTask(event.target.value);
-    };
-
-    const handleTaskSubmit = () => {
-        if (task) {
-            // Add the task to the task list
-            setTaskList([...taskList, task]);
-
-            // Clear the task input
-            setTask("");
-        }
-    };
+    for (let i = 0; i < colorStyle.length; i++) {
+        colorStyle[i].style.color = 'white';
+    }
 
 
     return (
         <div>
-            <div className={`App ${isSidebarOpen ? 'open' : ''}`}>
+            <div className={`App ${isSidebarOpen ? 'open' : ''} ${theme}`}>
                 <div id="mySidebar" className="sidebar">
                     <div className="close-button" onClick={closeNav}>&times;</div>
                     <div className="My-Stuff">
                         <Link to="/">My-Stuff</Link>
                     </div>
-                    <div className="Account-columns">
-                        <div className="Account-name">
-                            <Link to="/sign_in">[Name]</Link>
-                        </div>
-                        <div className="Account-pic">
-                            <Link to="/sign_in"><img src={logo} alt="logo" width={40} height={40}/></Link>
-                        </div>
-                    </div>
-                    <Link to="/projects">Projects</Link>
-                    <Link to="/settings">Settings</Link>
+                    {/*<div className="Account-columns">*/}
+                    {/*    <div className="Account-name">*/}
+                    {/*        <Link to="/sign_in">[Name]</Link>*/}
+                    {/*    </div>*/}
+                    {/*    <div className="Account-pic">*/}
+                    {/*        <Link to="/sign_in"><img src={logo} alt="logo" width={40} height={40}/></Link>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    <div className="projects-sidebar"><Link to="/projects">Projects</Link></div>
+                    {/*<Link to="/settings">Settings</Link>*/}
                 </div>
             </div>
 
         <div id="main">
             <button className="open-button" onClick={openNav}>&#9776;</button>
-
-            {/*<Toggle*/}
-            {/*    checked={isDark}*/}
-            {/*    onChange={({ target }) => setIsDark(target.checked)}*/}
-            {/*    icons={{ checked: "🌙", unchecked: "🔆" }}*/}
-            {/*    aria-label="Dark mode toggle"*/}
-            {/*/>*/}
             <div className="columns">
                 <div className="first-column">
                     <h2>Projects</h2>
@@ -105,7 +132,7 @@ const Projects = () => {
                             value={task}
                             onChange={handleTaskInputChange}
                         />
-                        <button type="button" onClick={handleTaskSubmit}>
+                        <button className="task-submit-button" type="button" onClick={handleTaskSubmit}>
                             Submit
                         </button>
                     </form>
@@ -128,6 +155,7 @@ const Projects = () => {
                             start: "today prev next",
                             end: "dayGridMonth dayGridWeek dayGridDay",
                         }}
+                        eventTextColor={"#D9D9D9"}
                         eventContent={(info) => <EventItem info={info} />}
                         eventMouseEnter={handleEventMouseEnter}
                         eventMouseLeave={handleEventMouseLeave}
@@ -137,10 +165,7 @@ const Projects = () => {
                         views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
                         initialView='dayGridMonth'
                         eventClick={
-                            function(arg){
-                                alert(arg.event.title)
-                                alert(arg.event.start)
-                            }
+                            handleEventClick
                         }
                         weekends={true}
                     />

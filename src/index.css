@@ -113,6 +113,16 @@ body {
   background-color: yellow;
 }
 
+.task-submit-button {
+  color: white;
+  padding: 6px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  background-color: #8ea0c9;
+  border: none;
+}
 
 /* Calendar Customization */
 
@@ -137,6 +147,24 @@ body {
 .fc .fc-popover {
   background-color: #8298cb !important; /* Set the background color to grey */
   color: white; /* Set the text color to white */
+}
+
+.fc-day-header {
+  color: #ff0000; /* Change the text color to red */
+  font-weight: bold; /* Optional: Add bold styling */
+}
+
+.portlet.calendar .fc-event .fc-time {
+  color: white;
+}
+
+.portlet.calendar .fc-event .fc-title {
+  color: white;
+}
+
+.highlighted-event {
+  background-color: #ffcccb; /* Change this to the desired highlight color */
+  cursor: pointer; /* Optional: Change the cursor to a pointer when hovered */
 }
 
 /* Custom prompt modal */
@@ -200,10 +228,6 @@ body {
 
 /* Dark mode styles */
 
-.light {
-  background-color: #d3d3d3;
-}
-
 .dark {
   background-color: black;
   color: white;
@@ -224,7 +248,6 @@ body {
 
 .dark .open-button {
   background-color: #333;
-  color: white;
 }
 
 .dark .columns {
@@ -249,6 +272,10 @@ body {
   color: white;
   border-color: #6e588f;
   font-size: 10px;
+}
+
+.projects-sidebar {
+  font-size: 25px;
 }
 
 /*LOGIN PAGE*/
