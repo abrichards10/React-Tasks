@@ -43,7 +43,7 @@ body {
   font-size: 20px;
   cursor: pointer;
   background-color: #111;
-  border-radius: 20px;
+  border-radius: 12px;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -69,7 +69,7 @@ body {
   font-size: 30px;
   margin: 20px 70px 20px 10px;
   background-color: #D9D9D9;
-  border-radius: 30px;
+  border-radius: 12px;
   border: 3px solid #b6b6b6;
   box-shadow: 9px 6px 4px #6e588f;
 }
@@ -105,10 +105,11 @@ body {
   flex: 2;
   padding: 20px;
   box-sizing: border-box;
-}
-
-.highlighted {
-  background-color: yellow;
+  background-color: #f3f6ff;
+  border: 2px solid #cbc3f1;
+  border-radius: 12px;
+  font-size: 14px;
+  color: black;
 }
 
 .task-submit-button {
@@ -116,7 +117,7 @@ body {
   padding: 6px;
   margin-top: 20px;
   margin-bottom: 20px;
-  border-radius: 20px;
+  border-radius: 12px;
   font-size: 12px;
   background-color: #8ea0c9;
   border: none;
@@ -128,7 +129,7 @@ body {
   background-color: #8ea0c9;
   color: white;
   border: none;
-  border-radius: 20px;
+  border-radius: 12px;
   margin: 2px 2px;
   cursor: pointer;
 }
@@ -156,26 +157,13 @@ body {
   color: white;
 }
 
-.dark #main {
-  background-color: #222;
-}
-
 .dark .open-button {
   background-color: #333;
-}
-
-.dark .columns {
-  background-color: #222;
 }
 
 .dark #eventNameInput, body.dark #confirmButton, body.dark #cancelButton {
   background-color: #333;
   color: white;
-}
-
-.dark #My-Stuff {
-  color: white;
-  background-color: #222222;
 }
 
 .dark-mode-button {
@@ -186,6 +174,10 @@ body {
   color: white;
   border-color: #6e588f;
   font-size: 10px;
+}
+
+.dark {
+  background-color: #222;
 }
 
 .projects-sidebar {

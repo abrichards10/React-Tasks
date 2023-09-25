@@ -27,7 +27,7 @@ const Home = () => {
     }, [theme]);
 
     return (
-        <div>
+        <div id="home">
             <div className={`App ${isSidebarOpen ? 'open' : ''} ${theme}`}>
                 <div id="mySidebar" className="sidebar">
                     <div className="close-button" onClick={closeNav}>&times;</div>
